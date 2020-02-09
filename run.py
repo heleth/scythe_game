@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+"""
+
+Usage
+-----
+1. execute run.py
+
+"""
+
+import scythe_game
+
+
+if __name__ == "__main__":
+
+    print("Hello, world")
+
+    # Initialize entire game status
+    status = scythe_game.Status()
