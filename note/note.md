@@ -1,6 +1,10 @@
 # Note
 
+## ミス
+* classのメンバー変数の第1引数をselfにするのを忘れないこと
+
 ## Work note
+* all hebagon names
     "a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1", "j1", "k1", "l1", "m1", "n1", "o1",
     "a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2", "i2", "j2", "k2", "l2", "m2", "n2", "o2",
     "a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3", "i3", "j3", "k3", "l3", "m3", "n3", "o3",
@@ -11,3 +15,28 @@
     "a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8", "i8", "j8", "k8", "l8", "m8", "n8", "o8",
     "a9", "b9", "c9", "d9", "e9", "f9", "g9", "h9", "i9", "j9", "k9", "l9", "m9", "n9", "o9",
 
+* old code of hexagon (file and rank coordinate)
+HEXAGONS = [
+    (
+        FILE_NAMES.index(hexagon_name[0]),
+        RANK_NAMES.index(hexagon_name[1])
+        )
+    for hexagon_name
+    in HEXAGON_NAMES
+    ]  # list[tuple[int,int]]
+
+def hexagon(file_index, rank_index):
+    """return a hexagon of specified file and rank index (return None if not exists)"""
+    if (file_index, rank_index) in HEXAGONS:
+        return (file_index, rank_index)
+    else:
+        return None
+
+def hexagon_file(hexagon):
+    return hexagon[0]
+
+def hexagon_rank(hexagon):
+    return hexagon[1]
+
+def hexagon_name(hexagon):
+    return HEXAGON_NAMES[HEXAGONS.index(hexagon)]
