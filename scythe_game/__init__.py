@@ -22,22 +22,47 @@ def piece_symbol(piece_type):
 def piece_name(piece_type):
     return PIECE_NAMES[piece_type]
 
-FILE_NAMES = ["a", "b", "c", "d", "e", "f", "g", "h"]
+FILE_NAMES = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o"]
+FILE_INDICES = range(len(FILE_NAMES))
+
 RANK_NAMES = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+RANK_INDICES = range(len(RANK_NAMES))
 
-# WIP #STARTING_STATUS = ""
-
+HEXAGON_NAMES = [
+                      "d1",                               "j1",                               
+                "c2",       "e2",       "g2",       "i2",       "k2",       "m2",            
+          "b3",       "d3",       "f3",       "h3",       "j3",       "l3",       "n3",       
+    "a4",       "c4",       "e4",       "g4",       "i4",       "k4",       "m4",       "o4",
+          "b5",       "d5",       "f5",       "h5",       "j5",       "l5",       "n5",       
+    "a6",       "c6",       "e6",       "g6",       "i6",       "k6",       "m6",            
+          "b7",       "d7",       "f7",       "h7",       "j7",       "l7",       "n7",       
+    "a8",       "c8",       "e8",       "g8",       "i8",       "k8",       "m8",       "o8",
+                                  "f9",       "h9",                                           
+    ]
 HEXAGONS = [
-        b1,         e1,            
-        b2, c2, d2, e2, f2, g2,    
-    a3, b3, c3, d3, e3, f3, g3,    
-    a4, b4, c4, d4, e4, f4, g4, h4,
-    a5, b5, c5, d5, e5, f5, g5,    
-    a6, b6, c6, d6, e6, f6, g6,    
-    a7, b7, c7, d7, e7, f7, g7,    
-    a8, b8, c8, d8, e8, f8, g8, h8,
-            c9, d9,                
-    ] = range(54)
+    (
+        FILE_NAMES.index(hexagon_name[0]),
+        RANK_NAMES.index(hexagon_name[1])
+        )
+    for hexagon_name
+    in HEXAGON_NAMES
+    ]  # list[tuple[int,int]]
+
+def hexagon(file_index, rank_index):
+    """return a hexagon of specified file and rank index (return None if not exists)"""
+    if (file_index, rank_index) in HEXAGONS:
+        return (file_index, rank_index)
+    else:
+        return None
+
+def hexagon_file(hexagon):
+    return hexagon[0]
+
+def hexagon_rank(hexagon):
+    return hexagon[1]
+
+def hexagon_name(hexagon):
+    return HEXAGON_NAMES[HEXAGONS.index(hexagon)]
 
 class Status(object):
     """Game status (board, figure, panel etc.)
@@ -51,4 +76,10 @@ class Status(object):
     """
 
     def __init__(self):
-        print(n_of_hexagon)
+        a = len(HEXAGONS)
+        b = hexagon(1,2)
+        c = hexagon_name((1,2))
+        print(a,b,c)
+
+
+
